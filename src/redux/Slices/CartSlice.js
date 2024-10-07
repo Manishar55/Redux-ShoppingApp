@@ -5,8 +5,12 @@ export const CartSlice=createSlice({
     name:"cart",
     initialState: [],
     reducers:{
-        add:()=>{},
-        remove:()=>{},
+        add:(state, action)=>{
+            state.push(action.payload)  //jo v i/p parameter send kiya hai usko action.payload se access kar sakte ho
+        },
+        remove:(state, action)=>{
+            return state.filter((item)=>item.id!==action.payload);
+        },
     }
 });
 

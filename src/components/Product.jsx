@@ -1,6 +1,18 @@
+import { useDispatch, useSelector } from "react-redux";
 
 
 const Product=({post})=>{
+    const {cart} =useSelector((state)=>state);
+    const dispatch=useDispatch();
+
+    const addToCart=()=>{
+        dispatch(add(post));
+        // toast.success("Item added to cart");
+    }
+    const removeFromCart=()=>{
+        dispatch(remove(post.id));
+        // toast.success("Remove from cart");
+    }
     return (
         <div>
             <div>
@@ -10,14 +22,20 @@ const Product=({post})=>{
                 <p>{post.description}</p>
             </div>
             <div>
-                <img src=""></img>
+                <img src={post.image} alt="ook"></img>
             </div>
             <div>
-                <p>{post.peice}</p>
+                <p>{post.price}</p>
             </div>
-            <button>
-                Add to cart
-            </button>
+            {
+                cart.some((p)=>p.id==post.id)?
+                (<button onClick={removeFromCart}>
+                    Remove Item
+                </button>):
+                (<button onClick={addToCart}>
+                    Add to Cart
+                </button>)
+            }
 
         </div>
     );
