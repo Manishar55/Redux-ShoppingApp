@@ -1,4 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
+import {toast} from "react-hot-toast";
+import {add, remove} from "../redux/Slices/CartSlice"
 
 
 const Product=({post})=>{
@@ -7,11 +9,11 @@ const Product=({post})=>{
 
     const addToCart=()=>{
         dispatch(add(post));
-        // toast.success("Item added to cart");
+        toast.success("Item added to cart");
     }
     const removeFromCart=()=>{
         dispatch(remove(post.id));
-        // toast.success("Remove from cart");
+        toast.success("Remove from cart");
     }
     return (
         <div>
@@ -28,13 +30,13 @@ const Product=({post})=>{
                 <p>{post.price}</p>
             </div>
             {
-                cart.some((p)=>p.id==post.id)?
-                (<button onClick={removeFromCart}>
-                    Remove Item
-                </button>):
-                (<button onClick={addToCart}>
-                    Add to Cart
-                </button>)
+                // cart.some((p)=>p.id===post.id)?
+                // (<button onClick={removeFromCart}>
+                //     Remove Item
+                // </button>):
+                // (<button onClick={addToCart}>
+                //     Add to Cart
+                // </button>)
             }
 
         </div>

@@ -1,6 +1,15 @@
 
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import {remove} from "../redux/Slices/CartSlice"
+import {toast} from "react-hot-toast"
+
 const CartItem=({item, itemIndex})=>{
+
+    const dispatch=useDispatch();
+
+    dispatch(remove(item.id));
+    toast.success("Item removed ");
     return (
         <div>
             <div>
