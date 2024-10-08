@@ -13,7 +13,7 @@ const Product=({post})=>{
     }
     const removeFromCart=()=>{
         dispatch(remove(post.id));
-        toast.success("Remove from cart");
+        toast.error("Remove from cart");
     }
     return (
         <div>
@@ -30,13 +30,13 @@ const Product=({post})=>{
                 <p>{post.price}</p>
             </div>
             {
-                // cart.some((p)=>p.id===post.id)?
-                // (<button onClick={removeFromCart}>
-                //     Remove Item
-                // </button>):
-                // (<button onClick={addToCart}>
-                //     Add to Cart
-                // </button>)
+                cart.some((p)=>p.id===post.id)?
+                (<button onClick={removeFromCart}>
+                    Remove Item
+                </button>):
+                (<button onClick={addToCart}>
+                    Add to Cart
+                </button>)
             }
 
         </div>

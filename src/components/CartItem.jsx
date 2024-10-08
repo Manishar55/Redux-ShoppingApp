@@ -8,8 +8,10 @@ const CartItem=({item, itemIndex})=>{
 
     const dispatch=useDispatch();
 
-    dispatch(remove(item.id));
-    toast.success("Item removed ");
+    const removeFromCart=()=>{
+        dispatch(remove(item.id));
+        toast.error("Item removed ");
+    }
     return (
         <div>
             <div>
@@ -21,7 +23,8 @@ const CartItem=({item, itemIndex})=>{
                     <h1>{item.description}</h1>
                     <div>
                         <p>{item.price}</p>
-                        <div>
+
+                        <div onClick={removeFromCart}>
                             <RiDeleteBin5Fill />
                         </div>
                     </div>
