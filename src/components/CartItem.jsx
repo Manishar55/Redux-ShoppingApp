@@ -13,14 +13,14 @@ const CartItem = ({item, itemIndex}) => {
   }
 
   return (
-    <div>
+    <div >
 
-      <div>
+      <div className="flex flex-row p-20">
 
-        <div>
-          <img src={item.image} />
+        <div className="">
+          <img src={item.image}  className="h-full w-full" />
         </div>
-        <div>
+        <div className="ml-20">
           <h1>{item.title}</h1>
           <h1>{item.description}</h1>
           <div>

@@ -21,7 +21,7 @@ const Cart = () => {
     <div>
   {
     cart.length > 0  ? 
-    (<div>
+    (<div className="flex flex-row p-20 ">
 
 
       <div>
@@ -32,7 +32,7 @@ const Cart = () => {
         }
       </div>
 
-      <div>
+      <div className="p-20">
 
         <div>
           <div>Your Cart</div>
